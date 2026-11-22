@@ -6,6 +6,7 @@ def configuration = rootProject.ext.configuration
 def libraries = rootProject.ext.libraries
 
 android {
+    namespace 'io.github.tonnyl.sparksample'
     compileSdkVersion configuration.compileSdkVersion
     buildToolsVersion configuration.buildToolsVersion
 
@@ -18,13 +19,14 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    
     }
 }
 
@@ -41,3 +43,7 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${libraries.androidTestRunnerRulesVersion}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${libraries.espressoVersion}"
 }
+
+
+
+

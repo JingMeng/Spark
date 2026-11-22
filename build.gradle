@@ -1,20 +1,19 @@
 buildscript {
-    ext.kotlin_version = '1.2.31'
+    ext.kotlin_version = '1.7.20'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:8.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.novoda:bintray-release:0.8.0'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -25,8 +24,8 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     configuration = [
-            compileSdkVersion: 27,
-            targetSdkVersion : 27,
+            compileSdkVersion: 34,
+            targetSdkVersion : 34,
             minSdkVersion    : 19,
             buildToolsVersion: '27.0.3'
     ]
@@ -37,4 +36,9 @@ ext {
             espressoVersion              : '3.0.1',
             androidTestRunnerRulesVersion: '0.5'
     ]
+}
+
+tasks.withType(JavaCompile).configureEach {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
